@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>One Question 💖</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      min-height: 100vh;
+      background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* LOADING */
+    #loading {
+      position: fixed;
+      inset: 0;
+      background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      z-index: 10;
+    }
+
+    #loading img {
+      width: 150px;
+      margin-bottom: 15px;
+    }
+
+    #loading p {
+      font-size: 18px;
+      color: #444;
+    }
+
+    /* CARD */
+    .card {
+      background: white;
+      padding: 30px;
+      border-radius: 20px;
+      max-width: 450px;
+      width: 90%;
+      text-align: center;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+    }
+
+    /* BOUQUET */
+    .bouquet {
+      position: relative;
+      width: 300px;
+      height: 300px;
+      margin: 0 auto 20px;
+    }
+
+    .bouquet img {
+      position: absolute;
+      width: 110px;
+      height: 110px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 4px solid #fff;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    }
+
+    .p1 { top: 0; left: 95px; }
+    .p2 { top: 60px; left: 0; }
+    .p3 { top: 60px; right: 0; }
+    .p4 { bottom: 40px; left: 40px; }
+    .p5 { bottom: 40px; right: 40px; }
+
+    h1 {
+      color: #ff4d6d;
+      margin-bottom: 10px;
+    }
+
+    p {
+      color: #444;
+      margin-bottom: 15px;
+      font-size: 16px;
+    }
+
+    .buttons {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+    }
+
+    button {
+      padding: 12px 25px;
+      border: none;
+      border-radius: 30px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .yes {
+      background: #ff4d6d;
+      color: white;
+    }
+
+    .no {
+      background: #ddd;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- LOADING -->
+  <div id="loading">
+    <img src="https://upload.wikimedia.org/wikipedia/en/5/53/Snoopy_Peanuts.png" alt="Snoopy loading">
+    <p>Loading project…</p>
+  </div>
+
+  <!-- CARD -->
+  <div class="card">
+    <div class="bouquet">
+      <img src="photo1.jfif" class="p1">
+      <img src="photo2.jfif" class="p2">
+      <img src="photo3.jfif" class="p3">
+      <img src="photo4.jfif" class="p4">
+      <img src="photo5.jfif" class="p5">
+    </div>
+
+    <h1>Hi love 💖</h1>
+    <p>3 years na tayo mehehuehueh 😆💘</p>
+    <h2>Will you be my Valentine? 🌹💖</h2>
+
+    <div class="buttons">
+      <button class="yes" onclick="yesAnswer()">Yes 💕</button>
+      <button class="no" id="noBtn">No 😢</button>
+    </div>
+  </div>
+
+  <script>
+    // Hide loading after 3 seconds
+    setTimeout(() => {
+      document.getElementById("loading").style.display = "none";
+    }, 3000);
+
+    // Yes button
+    function yesAnswer() {
+      document.querySelector(".card").innerHTML = `
+        <h1>YAYYY 💘</h1>
+        <p>I love you always 💖</p>
+      `;
+    }
+
+    // No button moves
+    const noBtn = document.getElementById("noBtn");
+    noBtn.addEventListener("mouseover", () => {
+      const x = Math.random() * 200 - 100;
+      const y = Math.random() * 200 - 100;
+      noBtn.style.transform = `translate(${x}px, ${y}px)`;
+    });
+  </script>
+
+</body>
+</html>
